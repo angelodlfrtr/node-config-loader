@@ -1,0 +1,12 @@
+{
+  "name": "async-config-loader",
+  "version": "0.0.1",
+  "description": "A simple config loader with configurable async sources",
+  "main": "index.js",
+  "repository": {
+    "url":  "https://github.com/angelodlfrtr/node-config-loader.git",
+    "type": "git"
+  },
+  "author": "angelodlfrtr <angelo.delefortrie@gmail.com>",
+  "license": "MIT"
+}
