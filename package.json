@@ -1,6 +1,6 @@
 {
   "name": "async-config-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple config loader with configurable async sources",
   "main": "index.js",
   "repository": {
