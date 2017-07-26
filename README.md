@@ -1,1 +1,61 @@
-# Async config loader
+# Async config loader for NodeJS
+
+Permit to load config vars from multiple configurable sources.
+
+## Installation
+
+```
+  npm install async-config-loader
+```
+
+## Usage
+
+Configure `test.js` :
+
+```js
+  var asyncLoader = require('async-config-loader');
+
+  asyncLoader.map('secret', {
+    'ENV': 'MY_SECRET_ENV_VAR',
+    'FILE': {
+      path: 'path_to_config_file',
+      key: 'my.secret'
+    }
+  });
+
+  asyncLoader.get('secret', function(val) {
+    console.log(val) // = val === secret value
+  });
+```
+
+Run :
+
+```
+  MY_SECRET_ENV_VAR=asupersecret node test.js
+```
+
+Will log `asupersecret`.
+
+## Licence
+
+The MIT License (MIT)
+
+Copyright (c) 2017 Angelo Delefortrie
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
