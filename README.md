@@ -5,7 +5,7 @@ Permit to load config vars from multiple configurable sources.
 ## Installation
 
 ```
-  npm install async-config-loader
+npm install async-config-loader
 ```
 
 ## Usage
@@ -13,25 +13,29 @@ Permit to load config vars from multiple configurable sources.
 Configure `test.js` :
 
 ```js
-  var asyncLoader = require('async-config-loader');
+var asyncLoader = require('async-config-loader');
 
-  asyncLoader.map('secret', {
-    'ENV': 'MY_SECRET_ENV_VAR',
-    'FILE': {
-      path: 'path_to_config_file',
-      key: 'my.secret'
-    }
-  });
+asyncLoader.map('secret', {
+  'ENV': 'MY_SECRET_ENV_VAR',
+  'FILE': {
+    path: 'path_to_config_file',
+    key: 'my.secret'
+  }
+});
 
-  asyncLoader.get('secret', function(val) {
-    console.log(val) // = val === secret value
-  });
+asyncLoader.get('secret', function(err, val) {
+  if (err) {
+    throw err;
+  }
+
+  console.log(val) // = val === secret value
+});
 ```
 
 Run :
 
 ```
-  MY_SECRET_ENV_VAR=asupersecret node test.js
+MY_SECRET_ENV_VAR=asupersecret node test.js
 ```
 
 Will log `asupersecret`.
