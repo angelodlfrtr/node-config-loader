@@ -2,6 +2,10 @@ module.exports = {
   mapping: {},
   sources: {
 
+    default: function(key_def, callback) {
+      callback(null, key_def);
+    },
+
     'ENV': function(key_def, callback) {
       callback(null, process.env[key_def]);
     },
